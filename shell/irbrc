@@ -1,0 +1,12 @@
+# Enable session history
+IRB.conf[:SAVE_HISTORY] = 50	
+
+# Configure prompt
+IRB.conf[:IRB_RC] = lambda do |conf| 
+  leader = " " * conf.irb_name.length 
+  conf.prompt_i = "#{conf.irb_name} --> "
+  conf.prompt_s = leader + ' \-" '
+  conf.prompt_c = leader + ' \-+ '
+  conf.return_format = leader + " ==> %s\n\n" 
+  puts "==> Follow the white rabbit..."
+end

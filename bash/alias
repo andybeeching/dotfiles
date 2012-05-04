@@ -1,0 +1,13 @@
+# Sys Admin
+
+alias tu='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+
+# Navigation
+
+alias cdd="cd -" #last used directory
+alias wiki="cd ~/Dropbox/Wiki"
+
+# Yak Shaving
+alias reload=". ~/bashrc"
+alias ea="vi ~/.dotfiles/bash/alias"

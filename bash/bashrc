@@ -1,0 +1,7 @@
+# Placeholder to load files
+. ~/.dotfiles/bash/env
+. ~/.dotfiles/bash/config
+. ~/.dotfiles/bash/alias
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
