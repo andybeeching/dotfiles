@@ -1,0 +1,34 @@
+# ~/.gitconfig based on http://oli.jp/2012/git-powerup/ by @boblet
+# initially based on http://rails.wincent.com/wiki/Git_quickstart
+
+[core]
+	excludesfile = /Users/admin/.gitignore
+	legacyheaders = false # >git 1.5
+	quotepath = false
+# http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
+	pager = less -r
+[color]
+	ui = auto
+	interactive = auto
+[repack]
+	usedeltabaseoffset = true # >git 1.5
+[alias]
+	st = status
+	a = !git add . && git status
+	au = !git add -u . && git status
+	aa = !git add . && git add -u . && git status
+	ci = commit -m
+	cia = !git add . && git commit -m
+	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --stat --abbrev-commit
+	master = checkout master
+	spull = svn rebase
+	spush = svn dcommit
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[user]
+	name = Andy Beeching
+	email = andybeeching@gmail.com
+[github]
+	user = [GH username]
+	token = [API token from https://github.com/account/admin]
+[diff]
