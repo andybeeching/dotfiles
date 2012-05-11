@@ -6,7 +6,7 @@ alias tm='top -o vsize' #memory
 # Navigation
 
 alias cdd="cd -" #last used directory
-alias wiki="cd ~/Dropbox/Wiki"
+alias wiki="~/Dropbox/Wiki"
 
 # Yak Shaving
 alias reload=". ~/bashrc"
