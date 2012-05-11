@@ -27,7 +27,7 @@ set ruler
 set cursorline
 set wrap
 set scrolloff=3                   " Display 3 lines around the cursor
-set colorcolumn=81								" Denote 80 col measure
+set colorcolumn=81                " Denote 80 col measure
 set list
 set listchars=tab:»\ ,eol:¬,      " Show invisible chars like textmate 
                                   " (options: trail::.,extends:#,nbsp:.)
@@ -87,7 +87,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr> " Alias to clear search
 
 " Appearance
-set background=dark " Signal use of dark theme
+set background=dark               " Signal use of dark theme to vim
 colorscheme solarized
 set showcmd
 set showmode
