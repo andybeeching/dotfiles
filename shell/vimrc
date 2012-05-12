@@ -29,7 +29,7 @@ set wrap
 set scrolloff=3                   " Display 3 lines around the cursor
 set colorcolumn=81                " Denote 80 col measure
 set list
-set listchars=tab:»\ ,eol:¬,      " Show invisible chars like textmate 
+set listchars=tab:»\ ,eol:¬,      " Show invisible chars like textmate
                                   " (options: trail::.,extends:#,nbsp:.)
 set linebreak                     " Soft wrapping
 set display=lastline              " Display only last line if truncated
@@ -42,8 +42,8 @@ au BufRead,BufNewFile Gemfile set filetype=ruby
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Basic Keymappings
-let mapleader=","                 " Change from /
-:imap <Leader>, <Esc>             " Custom ESC from insert to normal mode
+let mapleader=","
+:imap <Leader>, <Esc>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap ; :                      " Less SHFIT!
@@ -83,7 +83,7 @@ set ignorecase
 set smartcase                     " Clever search if capital letter present
 set showmatch                     " Show matching parenthesis
 set incsearch                     " Highlight matches as you type
-set hlsearch                      
+set hlsearch
 nnoremap <leader><space> :noh<cr> " Alias to clear search
 
 " Appearance
@@ -93,8 +93,8 @@ set showcmd
 set showmode
 
 " Whitespace Config
-set tabstop=2                     
-set shiftwidth=2                  
+set tabstop=2
+set shiftwidth=2
 set shiftround                    " Multiple of shiftwidth <>
 set expandtab                     " Spaces > Tabs
 set autoindent
@@ -102,12 +102,7 @@ set copyindent
 set smarttab
 
 "Strip trailing whitespace automagikally
-" Just don't use vim as a hex editor!!
-autocmd BufWritePre * :call <SID>StripWhite()
-fun! <SID>StripWhite()
-    %s/[ \t]\+$//ge
-    %s!^\( \+\)\t!\=StrRepeat("\t", 1 + strlen(submatch(1)) / 8)!ge
-endfun
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Plugin Key Mappings
 " Omnisense
@@ -162,6 +157,11 @@ vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
 
 " Select current paragraph and send it to tmux
 nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
+
+" vimux-ruby-test
+" Prompt for a command to run
+map <Leader>t :RunRubyFocusedTest<CR>
+map <Leader>c :RunRubyFocusedContext<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
