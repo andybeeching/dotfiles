@@ -36,6 +36,7 @@ set display=lastline              " Display only last line if truncated
 set visualbell
 set noerrorbells
 set nojoinspaces
+set spell
 
 " Improve syntax highlighting
 au BufRead,BufNewFile Gemfile set filetype=ruby
@@ -46,13 +47,14 @@ let mapleader=","
 :imap <Leader>, <Esc>
 nnoremap <tab> %
 vnoremap <tab> %
-nnoremap ; :                      " Less SHFIT!
+nnoremap ; :
 vnoremap ; :
 nnoremap j gj
 nnoremap k gk
-cmap w!! w !sudo tee % >/dev/null " Allow sudo save file
+cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>a :Ack
-nnoremap <leader>v V`]            " Reselects pasted text for ops
+" Reselects pasted text for ops
+nnoremap <leader>v V`]
 
 " Window kemappings
 nnoremap <leader>w <C-w>v<C-w>l
@@ -69,7 +71,8 @@ set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set complete=.,w,t
-nnoremap / /\v                    " Automagically use magic RegEx mode
+" Automagically use magic RegEx mode
+nnoremap / /\v
 vnoremap / /\v
 set gdefault                      " Apply substitutions globally on lines
 set title
@@ -124,8 +127,12 @@ set completefunc=syntaxcomplete#Complete
 endfunction
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
+" NERDTree
+map <silent> <leader>d :NERDTreeToggle<CR>
+
 " Snipmate
-let g:snippetsEmu_key = "<S-Tab>"   " Snippets are activated by Shift+Tab
+" Snippets are activated by Shift+Tab
+let g:snippetsEmu_key = "<S-Tab>"
 
 " Vimux
 " Run the current file with rspec
