@@ -6,9 +6,6 @@ echo -ne "Server time is: "; date
 
 # Ruby ----------------------------------------------------
 
-# Fixes problems with sending email in ruby
-export RUBYOPT="-r openssl"
-
 # History ----------------------------------------------------------
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=3000
