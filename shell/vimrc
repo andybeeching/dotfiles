@@ -37,6 +37,7 @@ set visualbell
 set noerrorbells
 set nojoinspaces
 set spell
+set showmatch                      "Show matching brackets
 
 " Improve syntax highlighting
 au BufRead,BufNewFile Gemfile set filetype=ruby
@@ -56,7 +57,7 @@ nnoremap <leader>a :Ack
 " Reselects pasted text for ops
 nnoremap <leader>v V`]
 
-" Window kemappings
+" Window keymappings
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -71,12 +72,10 @@ set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set complete=.,w,t
-" Automagically use magic RegEx mode
-nnoremap / /\v
-vnoremap / /\v
 set gdefault                      " Apply substitutions globally on lines
 set title
 set laststatus=2                  " Show the status line all the time
+set magic                         " Use magic mode for regular expressions
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
