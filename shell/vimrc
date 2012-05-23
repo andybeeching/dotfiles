@@ -22,7 +22,7 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set backspace=indent,eol,start    " Allow liberal backspacing in insert mode
 syntax enable
 set number
-set numberwidth=5
+set numberwidth=3
 set ruler
 set cursorline
 set wrap
@@ -79,6 +79,7 @@ set magic                         " Use magic mode for regular expressions
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+let g:Powerline_symbols = 'fancy'
 
 " Search Behaviour
 set ignorecase
