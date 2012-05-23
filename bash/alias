@@ -2,12 +2,42 @@
 
 alias tu='top -o cpu' #cpu
 alias tm='top -o vsize' #memory
+alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
+alias df='df -h' # Show disk usage
+if [ "$OS" = "linux" ] ; then
+  alias processes_all='ps -AFH'
+else
+  alias processes_all='ps -Afjv'
+fi
+
+if [ "$OS" = "linux" ] ; then
+  alias systail='tail -f /var/log/syslog'
+else
+  alias systail='tail -f /var/log/system.log'
+fi
 
 # Navigation
-
 alias cdd="cd -" #last used directory
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
 alias wiki="cd ~/Dropbox/Wiki"
 
 # Yak Shaving
 alias reload=". ~/.bashrc"
 alias ea="vim ~/.dotfiles/bash/alias"
+
+# Directory Listing
+alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+alias ll='ls -hl'
+alias la='ls -a'
+alias lla='ls -lah'
+alias cp_folder="cp -Rpv" #copies folder and all sub files and folders, preserving security and dates
+
+# History
+alias h=history
+
+# Shows most used commands, cool script I got this from: http://lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
+alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+
+# Tar files
+alias untar="tar xvzf"
