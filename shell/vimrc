@@ -79,7 +79,6 @@ set magic                         " Use magic mode for regular expressions
 
 " Useful status information at bottom of screen
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-let g:Powerline_symbols = 'fancy'
 
 " Search Behaviour
 set ignorecase
@@ -112,6 +111,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Fugitive
 " Clean up superfluous Fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " Omnisense
 set completefunc=syntaxcomplete#Complete
