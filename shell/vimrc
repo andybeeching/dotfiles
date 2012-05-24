@@ -109,6 +109,10 @@ set smarttab
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Plugin Key Mappings
+" Fugitive
+" Clean up superfluous Fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Omnisense
 set completefunc=syntaxcomplete#Complete
 
