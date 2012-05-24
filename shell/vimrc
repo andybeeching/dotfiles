@@ -111,6 +111,11 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Fugitive
 " Clean up superfluous Fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+" Provide shortcut to traverse up fugitive tree listing
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
