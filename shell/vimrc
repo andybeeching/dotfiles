@@ -31,7 +31,7 @@ set colorcolumn=81                " Denote 80 col measure
 set list
 set listchars=tab:»\ ,eol:¬,      " Show invisible chars like textmate
                                   " (options: trail::.,extends:#,nbsp:.)
-set linebreak                     " Soft wrapping
+set linebreak
 set display=lastline              " Display only last line if truncated
 set visualbell
 set noerrorbells
