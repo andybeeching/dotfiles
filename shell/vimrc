@@ -32,7 +32,6 @@ set list
 set listchars=tab:»\ ,eol:¬,      " Show invisible chars like textmate
                                   " (options: trail::.,extends:#,nbsp:.)
 set linebreak
-set showbreak
 set display=lastline              " Display only last line if truncated
 set visualbell
 set noerrorbells
