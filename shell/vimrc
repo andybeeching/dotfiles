@@ -147,6 +147,8 @@ map <silent> <leader>d :NERDTreeToggle<CR>
 let g:snippetsEmu_key = "<S-Tab>"
 
 " Vimux
+let g:VimuxUseNearestPane = 1
+
 " Run the current file with rspec
 " map <Leader>j :call RunVimTmuxCommand("clear; rspec " . bufname("%"))<CR>
 
