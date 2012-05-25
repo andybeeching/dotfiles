@@ -181,7 +181,7 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 " vimux-ruby-test
 " Prompt for a command to run
-map <Leader>t :RunRubyFocusedTest<CR>
+map <Leader>e :RunRubyFocusedTest<CR>
 map <Leader>c :RunRubyFocusedContext<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
