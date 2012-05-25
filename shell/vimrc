@@ -16,7 +16,7 @@ set modelines=0                   " Prevent security exploits with modelines
 set ttyfast                       " Indicate a fast terminal connection
 set nobackup                      " Don't backup before overwriting a file.
 set nowritebackup
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set dir=/tmp//                    " Keep swap files in one location
 
 " Editor Behaviour
 set backspace=indent,eol,start    " Allow liberal backspacing in insert mode
