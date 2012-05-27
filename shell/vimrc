@@ -93,7 +93,7 @@ set background=dark               " Signal use of dark theme to vim
 colorscheme solarized
 set showcmd
 set showmode
-" let g:solarized_diffmode="high"
+let g:solarized_diffmode="high"
 
 " Whitespace Config
 set tabstop=2
