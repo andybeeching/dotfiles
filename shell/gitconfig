@@ -19,6 +19,7 @@
 	aa = !git add . && git add -u . && git status
 	ci = commit -m
 	cia = !git add . && git commit -m
+	co = checkout
 	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --stat --abbrev-commit
 	master = checkout master
