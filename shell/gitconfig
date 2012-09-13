@@ -29,7 +29,4 @@
 [user]
 	name = Andy Beeching
 	email = andybeeching@gmail.com
-[github]
-	user = [GH username]
-	token = [API token from https://github.com/account/admin]
 [diff]
