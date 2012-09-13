@@ -26,5 +26,8 @@ Thumbs.db
 
 # Editor Files #
 ################
-
 *.swp
+
+# Development Tools #
+# ##################
+Guardfile
