@@ -1,6 +1,9 @@
 " Compatibility
 set nocompatible
 
+" Play Nice with tmux
+set ttymouse=xterm
+
 " Load shipped plugins
 runtime macros/matchit.vim
 
