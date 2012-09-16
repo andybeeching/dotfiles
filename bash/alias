@@ -26,6 +26,9 @@ alias wiki="cd ~/Dropbox/Wiki"
 alias reload=". ~/.bashrc"
 alias ea="vim ~/.dotfiles/bash/alias"
 
+# Hacking!
+alias hack="mux"
+
 # Directory Listing
 alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
 alias ll='ls -hl'
