@@ -4,7 +4,8 @@ echo -e "`bash --version`"
 echo -ne "Uptime: "; uptime
 echo -ne "Server time is: "; date
 
-# Ruby ----------------------------------------------------
+# Environmental Vars------------------------------------------------
+export EDITOR=vim
 
 # History ----------------------------------------------------------
 export HISTCONTROL=ignoredups
@@ -32,3 +33,12 @@ function grf() {
 function gg() {
 	git commit -v -a -m "$*"
 }
+
+# Teamocil Helper
+function hack() {
+  TYPE=${2}"stack"
+  tmux new-session "teamocil $TYPE $1"
+}
+
+# Tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
