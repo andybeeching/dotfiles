@@ -21,6 +21,7 @@ alias cdd="cd -" #last used directory
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 alias wiki="cd ~/Dropbox/Wiki"
+alias dev="~/dev"
 
 # Yak Shaving
 alias reload=". ~/.bashrc"
