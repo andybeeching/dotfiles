@@ -1,4 +1,4 @@
-" Compatibility
+" Vi Compatibility
 set nocompatible
 
 " Play Nice with tmux
@@ -41,6 +41,8 @@ set noerrorbells
 set nojoinspaces
 set spell
 set showmatch                      "Show matching brackets
+set autoread                       "Auto-reload modified files (wo local change)"
+set report=0                       "Report all changes"
 
 " Improve syntax highlighting
 au BufRead,BufNewFile Gemfile set filetype=ruby
@@ -67,6 +69,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Misc Keymappings
+" Create an empty line underneath without moving the cursor
+noremap <CR> O<Esc>`l
+
 " Shell Behaviour
 set hidden                        " Permit hidden buffers
 set showcmd
@@ -79,9 +85,6 @@ set gdefault                      " Apply substitutions globally on lines
 set title
 set laststatus=2                  " Show the status line all the time
 set magic                         " Use magic mode for regular expressions
-
-" Useful status information at bottom of screen
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Search Behaviour
 set ignorecase
@@ -106,6 +109,11 @@ set expandtab                     " Spaces > Tabs
 set autoindent
 set copyindent
 set smarttab
+set smartindent
+
+" Per-file Whitespace Settings
+autocmd BufEnter *.css  set softtabstop=4|set shiftwidth=4
+autocmd BufEnter *.html set shiftwidth=4|set noexpandtab
 
 "Strip trailing whitespace automagikally
 autocmd BufWritePre * :%s/\s\+$//e
