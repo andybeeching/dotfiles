@@ -179,10 +179,10 @@ map <Leader>k :RunLastVimTmuxCommand<CR>
 map <Leader>ri :InspectVimTmuxRunner<CR>
 
 " Close all other tmux panes in current window
-map <Leader>rx :CloseVimTmuxPanes<CR>
+" map <Leader>rx :CloseVimTmuxPanes<CR>
 
 " Interrupt any command running in the runner pane
-map <Leader>rs :InterruptVimTmuxRunner<CR>
+map <Leader><C> :InterruptVimTmuxRunner<CR>
 
 " Prompt for a command to run
 map <LocalLeader>vp :PromptVimTmuxCommand<CR>
@@ -195,7 +195,7 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 " vimux-ruby-test
 " Prompt for a command to run
-map <Leader>e :RunRubyFocusedTest<CR>
+map <Leader>r :RunRubyFocusedTest<CR>
 map <Leader>c :RunRubyFocusedContext<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
