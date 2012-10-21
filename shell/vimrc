@@ -131,6 +131,9 @@ autocmd User fugitive
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
+" Numbers
+nnoremap <F3> :NumbersToggle<CR>
+
 " Omnisense
 set completefunc=syntaxcomplete#Complete
 
