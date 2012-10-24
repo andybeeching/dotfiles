@@ -167,22 +167,23 @@ let g:VimuxUseNearestPane = 1
 " map <Leader>j :call RunVimTmuxCommand("clear; rspec " . bufname("%"))<CR>
 
 " Run the current file with corresponding tests
-map <Leader>j :call RunVimTmuxCommand("clear; ruby " . bufname("%"))<CR>
+autocmd filetype ruby map <Leader>j :call VimuxRunCommand("clear; ruby " . bufname("%"))<CR>
+autocmd filetype javascript map <Leader>j :call VimuxRunCommand("clear; buster test --tests " . bufname("%"))<CR>
 
 " Prompt for a command to run
-map <Leader>f :PromptVimTmuxCommand<CR>
+map <Leader>f :VimuxPromptCommand<CR>
 
 " Run last command executed by RunVimTmuxCommand
-map <Leader>k :RunLastVimTmuxCommand<CR>
+map <Leader>k :VimmuxRunLastCommand<CR>
 
 " Inspect runner pane
-map <Leader>ri :InspectVimTmuxRunner<CR>
+" map <Leader>ri :InspectVimTmuxRunner<CR>
 
 " Close all other tmux panes in current window
 " map <Leader>rx :CloseVimTmuxPanes<CR>
 
 " Interrupt any command running in the runner pane
-map <Leader><C> :InterruptVimTmuxRunner<CR>
+map <Leader><C> :VimuxInterruptRunner<CR>
 
 " Prompt for a command to run
 map <LocalLeader>vp :PromptVimTmuxCommand<CR>
@@ -195,8 +196,13 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 
 " vimux-ruby-test
 " Prompt for a command to run
-map <Leader>r :RunRubyFocusedTest<CR>
-map <Leader>c :RunRubyFocusedContext<CR>
+autocmd filetype ruby map <Leader>l :RunRubyFocusedTest<CR>
+autocmd filetype ruby map <Leader>c :RunRubyFocusedContext<CR>
+
+" vimux-buster-test
+" Prompt for a command to run
+autocmd filetype javascript map <Leader>l :RunBusterFocusedTest<CR>
+autocmd filetype javascript map <Leader>c :RunBusterFocusedContext<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
