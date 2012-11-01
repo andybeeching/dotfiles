@@ -14,12 +14,14 @@ call pathogen#helptags()
 
 " File Settings
 filetype plugin indent on
-set encoding=utf-8
+set encoding=utf-8 nobomb
 set modelines=0                   " Prevent security exploits with modelines
 set ttyfast                       " Indicate a fast terminal connection
 set nobackup                      " Don't backup before overwriting a file.
 set nowritebackup
 set dir=/tmp//                    " Keep swap files in one location
+set noeol                         " No empty newlines at end of files
+set binary
 
 " Editor Behaviour
 set backspace=indent,eol,start    " Allow liberal backspacing in insert mode
@@ -92,6 +94,7 @@ set smartcase                     " Clever search if capital letter present
 set showmatch                     " Show matching parenthesis
 set incsearch                     " Highlight matches as you type
 set hlsearch
+set gdefault                      " Use greedy modifier by default
 nnoremap <leader><space> :noh<cr> " Alias to clear search
 
 " Appearance
@@ -174,7 +177,7 @@ autocmd filetype javascript map <Leader>j :call VimuxRunCommand("clear; buster t
 map <Leader>f :VimuxPromptCommand<CR>
 
 " Run last command executed by RunVimTmuxCommand
-map <Leader>k :VimmuxRunLastCommand<CR>
+map <Leader>k :VimuxRunLastCommand<CR>
 
 " Inspect runner pane
 " map <Leader>ri :InspectVimTmuxRunner<CR>
@@ -186,10 +189,10 @@ map <Leader>k :VimmuxRunLastCommand<CR>
 map <Leader><C> :VimuxInterruptRunner<CR>
 
 " Prompt for a command to run
-map <LocalLeader>vp :PromptVimTmuxCommand<CR>
+map <LocalLeader>vp :VimuxPromptCommand<CR>
 
 " If text is selected, save it in the v buffer and send that buffer it to tmux
-vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
+vmap <LocalLeader>vs "vy :call VimuxRunCommand(@v . "\n", 0)<CR>
 
 " Select current paragraph and send it to tmux
 nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
@@ -201,8 +204,8 @@ autocmd filetype ruby map <Leader>c :RunRubyFocusedContext<CR>
 
 " vimux-buster-test
 " Prompt for a command to run
-autocmd filetype javascript map <Leader>l :RunBusterFocusedTest<CR>
-autocmd filetype javascript map <Leader>c :RunBusterFocusedContext<CR>
+autocmd filetype javascript map <Leader>l :RunJavaScriptFocusedTest<CR>
+autocmd filetype javascript map <Leader>c :RunJavaScriptFocusedContext<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax

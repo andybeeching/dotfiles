@@ -51,6 +51,13 @@ alias colorslist="set | egrep 'Cl_\w*'"  # lists all the colors
 
 if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
 
+  # Enable some Bash 4 features when possible:
+  # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+  # * Recursive globbing, e.g. `echo **/*.txt`
+  for option in autocd globstar; do
+    shopt -s "$option" 2> /dev/null
+  done
+
   # Input stuff -------------------------------------------------------
   bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
   bind "set show-all-if-ambiguous On" # show list automatically, without double tab
@@ -62,6 +69,16 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   #bind -m vi-command -r 'v'
 
   shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
+
+  # Case-insensitive globbing (used in pathname expansion)
+  shopt -s nocaseglob
+
+  # Autocorrect typos in path names when using `cd`
+  shopt -s cdspell
+
+  # History ----------------------------------------------------------
+  # Append to the Bash history file, rather than overwriting it
+  shopt -s histappend
 
   # Completion -------------------------------------------------------
 
