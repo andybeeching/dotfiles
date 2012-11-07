@@ -40,8 +40,10 @@ alias oo="open ."
 alias reload=". ~/.bashrc"
 alias ea="vim ~/.dotfiles/bash/alias"
 
-# Hacking!
+# Mood-dependent Hacking
 alias hack="mux"
+alias tinker="mux"
+alias poke="mux"
 
 # Documenting (like a boss)
 alias vux="cd ~/Dropbox/Wiki/Design/UX && v ."
