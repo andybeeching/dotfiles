@@ -63,6 +63,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>a :Ack
 " Reselects pasted text for ops
 nnoremap <leader>v V`]
+nnoremap <leader>p :set invpaste paste?<CR>
 
 " Window keymappings
 nnoremap <leader>w <C-w>v<C-w>l
@@ -78,7 +79,6 @@ noremap <CR> O<Esc>`l
 " Shell Behaviour
 set hidden                        " Permit hidden buffers
 set showcmd
-set showmode
 set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
 set wildignore=*.swp,*.bak,*.pyc,*.class
