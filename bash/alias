@@ -1,3 +1,6 @@
+# Yak Shave
+alias cb="cat ~/.dotfiles/bash/alias"
+
 # Many from https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 # Sys Admin
 
