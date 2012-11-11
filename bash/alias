@@ -50,8 +50,8 @@ alias poke="mux"
 
 # Documenting (like a boss)
 alias vux="cd ~/Dropbox/Wiki/Design/UX && v ."
-alias vjs="cd ~/Dropbox/Wiki/Software Engineering/JavaScript && v ."
-alias vruby="cd ~/Dropbox/Wiki/Software Engineering/Ruby && v ."
+alias vjs="cd ~/Dropbox/Wiki/Software\ Engineering/JavaScript && v ."
+alias vruby="cd ~/Dropbox/Wiki/Software\ Engineering/Ruby && v ."
 
 # Directory Listing
 alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
