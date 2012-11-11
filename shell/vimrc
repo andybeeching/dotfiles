@@ -63,6 +63,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>a :Ack
 " Reselects pasted text for ops
 nnoremap <leader>v V`]
+" Toggle for paste mode (for formatted text from system clipboard)
 nnoremap <leader>p :set invpaste paste?<CR>
 
 " Window keymappings
