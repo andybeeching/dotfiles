@@ -28,6 +28,6 @@ Thumbs.db
 ################
 *.swp
 
-# Development Tools #
-# ##################
-Guardfile
+# Misc #
+# ##############
+notes.md
