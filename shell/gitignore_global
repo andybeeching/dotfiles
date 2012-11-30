@@ -28,6 +28,10 @@ Thumbs.db
 ################
 *.swp
 
+# Node #
+#######
+node_modules/*
+
 # Misc #
 # ##############
 notes.md
