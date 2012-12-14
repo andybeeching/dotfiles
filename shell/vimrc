@@ -52,6 +52,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " Basic Keymappings
 let mapleader=","
+nnoremap <leader><leader> <c-^> " Jump back to previous buffer
 :imap <Leader>, <Esc>
 nnoremap <tab> %
 vnoremap <tab> %
@@ -172,29 +173,17 @@ let g:VimuxUseNearestPane = 1
 
 " Run the current file with corresponding tests
 autocmd filetype ruby map <Leader>j :call VimuxRunCommand("clear; ruby " . bufname("%"))<CR>
-autocmd filetype javascript map <Leader>j :call VimuxRunCommand("clear; buster test --tests " . bufname("%"))<CR>
 
 " Prompt for a command to run
 map <Leader>f :VimuxPromptCommand<CR>
-
 " Run last command executed by RunVimTmuxCommand
 map <Leader>k :VimuxRunLastCommand<CR>
-
-" Inspect runner pane
-" map <Leader>ri :InspectVimTmuxRunner<CR>
-
-" Close all other tmux panes in current window
-" map <Leader>rx :CloseVimTmuxPanes<CR>
-
 " Interrupt any command running in the runner pane
 map <Leader><C> :VimuxInterruptRunner<CR>
-
 " Prompt for a command to run
 map <LocalLeader>vp :VimuxPromptCommand<CR>
-
 " If text is selected, save it in the v buffer and send that buffer it to tmux
 vmap <LocalLeader>vs "vy :call VimuxRunCommand(@v . "\n", 0)<CR>
-
 " Select current paragraph and send it to tmux
 nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 
@@ -203,10 +192,14 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 autocmd filetype ruby map <Leader>l :RunRubyFocusedTest<CR>
 autocmd filetype ruby map <Leader>c :RunRubyFocusedContext<CR>
 
-" vimux-buster-test
+" vimux-javascript-test
 " Prompt for a command to run
 autocmd filetype javascript map <Leader>l :RunJavaScriptFocusedTest<CR>
-autocmd filetype javascript map <Leader>c :RunJavaScriptFocusedContext<CR>
+autocmd filetype javascript map <Leader>j :RunJavaScriptTestCase<CR>
+autocmd filetype javascript map <Leader>h :RunJavaScriptTestSuite<CR>
+
+" vim-tasks
+map <Leader>m :Toggle_task_status()<CR>i
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
