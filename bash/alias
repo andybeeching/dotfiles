@@ -48,6 +48,9 @@ alias hack="mux"
 alias tinker="mux"
 alias poke="mux"
 
+# Git
+alias gap="git add -p"
+
 # Documenting (like a boss)
 alias vux="cd ~/Dropbox/Wiki/Design/UX && v ."
 alias vjs="cd ~/Dropbox/Wiki/Software\ Engineering/JavaScript && v ."
