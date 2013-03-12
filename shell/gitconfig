@@ -1,5 +1,7 @@
 # ~/.gitconfig based on http://oli.jp/2012/git-powerup/ by @boblet
 # initially based on http://rails.wincent.com/wiki/Git_quickstart
+# Also: http://durdn.com/blog/2012/12/05/git-12-curated-git-tips-and-workflows/
+# git config --global https.proxy https://user:password@address:port
 
 [core]
 	excludesfile = /Users/admin/.gitignore_global
@@ -20,7 +22,9 @@
 	ci = commit -m
 	cia = !git add . && git commit -m
 	co = checkout
-	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+	l = !"git lg2"
 	ll = log --stat --abbrev-commit
 	master = checkout master
 	spull = svn rebase
@@ -30,3 +34,5 @@
 	name = Andy Beeching
 	email = andybeeching@gmail.com
 [diff]
+[pull]
+	rebase = true
