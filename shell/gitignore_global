@@ -16,6 +16,7 @@
 *.log
 *.sql
 *.sqlite
+npm-debug.log
 
 # OS generated files #
 ######################
@@ -32,6 +33,11 @@ Thumbs.db
 #######
 node_modules/*
 
-# Misc #
+# JavaScript #
+##############
+phantom.js
+
+# Productivity #
 # ##############
 notes.md
+.tasks

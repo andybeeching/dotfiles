@@ -12,6 +12,12 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" Enable local vimrc files
+" WARNING: This can be insecure, be careful enabling, especially remotely.
+" See: https://github.com/MarcWeber/vim-addon-local-vimrc for fancier version.
+set exrc                          " enable per-directory .vimrc files
+set secure                        " disable unsafe commands in local .vimrc files
+
 " File Settings
 filetype plugin indent on
 set encoding=utf-8 nobomb
@@ -83,7 +89,7 @@ set hidden                        " Permit hidden buffers
 set showcmd
 set wildmenu                      " Enhanced command line completion
 set wildmode=list:longest         " Complete files like a shell
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules
 set complete=.,w,t
 set gdefault                      " Apply substitutions globally on lines
 set title
@@ -168,38 +174,57 @@ let g:snippetsEmu_key = "<S-Tab>"
 " Vimux
 let g:VimuxUseNearestPane = 1
 
-" Run the current file with rspec
-" map <Leader>j :call RunVimTmuxCommand("clear; rspec " . bufname("%"))<CR>
-
-" Run the current file with corresponding tests
-autocmd filetype ruby map <Leader>j :call VimuxRunCommand("clear; ruby " . bufname("%"))<CR>
-
 " Prompt for a command to run
 map <Leader>f :VimuxPromptCommand<CR>
 " Run last command executed by RunVimTmuxCommand
 map <Leader>k :VimuxRunLastCommand<CR>
 " Interrupt any command running in the runner pane
-map <Leader><C> :VimuxInterruptRunner<CR>
+map <Leader>C :VimuxInterruptRunner<CR>
 " Prompt for a command to run
-map <LocalLeader>vp :VimuxPromptCommand<CR>
+map <LocalLeader>p :VimuxPromptCommand<CR>
+
+function! VimuxSlime()
+  call VimuxSendText(@v)
+  call VimuxSendKeys("Enter")
+endfunction
+
 " If text is selected, save it in the v buffer and send that buffer it to tmux
-vmap <LocalLeader>vs "vy :call VimuxRunCommand(@v . "\n", 0)<CR>
-" Select current paragraph and send it to tmux
-nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
+vmap <Leader>z "vy :call VimuxSlime()<CR>
+
+" Select current line (use vip for paragraph/block) and send it to tmux
+map <Leader>j vip<Leader>z
+map <Leader>l V<Leader>z
 
 " vimux-ruby-test
 " Prompt for a command to run
-autocmd filetype ruby map <Leader>l :RunRubyFocusedTest<CR>
-autocmd filetype ruby map <Leader>c :RunRubyFocusedContext<CR>
+autocmd filetype ruby map <silent> <Leader>l :RunRubyFocusedTest<CR>
+autocmd filetype ruby map <silent> <Leader>c :RunRubyFocusedContext<CR>
+
+" Run the current file with corresponding tests
+autocmd filetype ruby map <Leader>j :call VimuxRunCommand("clear; ruby " . bufname("%"))<CR>
 
 " vimux-javascript-test
 " Prompt for a command to run
-autocmd filetype javascript map <Leader>l :RunJavaScriptFocusedTest<CR>
-autocmd filetype javascript map <Leader>j :RunJavaScriptTestCase<CR>
-autocmd filetype javascript map <Leader>h :RunJavaScriptTestSuite<CR>
+autocmd filetype javascript map <silent> <Leader>l :RunJavaScriptFocusedTest<CR>
+autocmd filetype javascript map <silent> <Leader>j :RunJavaScriptTestCase<CR>
+autocmd filetype javascript map <silent> <Leader>h :RunJavaScriptTestSuite<CR>
+let g:busterlocal="true"
 
 " vim-tasks
-map <Leader>m :Toggle_task_status()<CR>i
+" Borrowed function as vim-task doesn't register mappings for me
+function! Toggle_task_status()
+  let line = getline('.')
+  if match(line, '^\(\s*\)-') == 0
+    let line = substitute(line, '^\(\s*\)-', '\1✓', '')
+  elseif match(line, '^\(\s*\)✓') == 0
+    let line = substitute(line, '^\(\s*\)✓\s\=\<', '\1', '')
+  else
+    let line = substitute(line, '^\(\s\{-}\)\(\s\=\)\<', '\2\1- ', '')
+  endif
+  call setline('.', line)
+endfunction
+
+map <Leader>m :call Toggle_task_status()<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax

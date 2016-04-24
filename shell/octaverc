@@ -1,0 +1,2 @@
+# Handle forced `AquaTerm` mode
+setenv("GNUTERM","X11")

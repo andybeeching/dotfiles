@@ -7,6 +7,9 @@ echo -ne "Server time is: "; date
 # Environmental Vars------------------------------------------------
 export EDITOR=vim
 
+# Vim mode----------------------------------------------------------
+set -o vi
+
 # History ----------------------------------------------------------
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=3000

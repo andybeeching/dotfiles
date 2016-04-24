@@ -1,10 +1,8 @@
 # Update PATH to use VIM 7.3
 PATH=~/usr/local/bin:$PATH
 
-# Export ENV vars for Buster
-# export NODE_PATH=~/src/buster-dev-tools
-# export PATH=$NODE_PATH/buster-dev-tools/bin:$PATH
-# export PATH=$NODE_PATH/buster/bin:$PATH
+# Export Java Classpath
+export CLASSPATH=.:~/dev/algo
 
 # For setting up solaris in iTerm with tmux
 # .bashrc
